@@ -9,7 +9,11 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true, // remover la data basura
       forbidNonWhitelisted: true,
-      }) 
+      transform: true, // transforme la información que va en los DTO
+      transformOptions: {
+        enableImplicitConversion: true
+      }
+    }) 
   )
   app.setGlobalPrefix('api/v2')
   await app.listen(3000);
